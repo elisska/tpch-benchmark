@@ -1,31 +1,19 @@
 --Pricing Summary Report Query (Q1)
 SELECT 
   L_RETURNFLAG, L_LINESTATUS, SUM(L_QUANTITY), SUM(L_EXTENDEDPRICE), SUM(L_EXTENDEDPRICE*(1-L_DISCOUNT)), SUM(L_EXTENDEDPRICE*(1-L_DISCOUNT)*(1+L_TAX)), AVG(L_QUANTITY), AVG(L_EXTENDEDPRICE), AVG(L_DISCOUNT), cast(COUNT(1) as int)
-FROM 
-  lineitem 
-WHERE 
-  L_SHIPDATE<='1998-09-02' 
+FROM   lineitem 
+WHERE   L_SHIPDATE<='1998-09-02' 
 GROUP BY L_RETURNFLAG, L_LINESTATUS 
 ORDER BY L_RETURNFLAG, L_LINESTATUS;
 
 -- Minimum Cost Supplier Query (Q2)
-select
-s_acctbal,
-s_name,
-n_name,
-p_partkey,
-p_mfgr,
-s_address,
-s_phone,
-s_comment
-from
-part,
+select s_acctbal,s_name,n_name,p_partkey,p_mfgr,s_address,s_phone,s_comment
+from part,
 supplier,
 partsupp,
 nation,
 region
-where
-p_partkey = ps_partkey
+where p_partkey = ps_partkey
 and s_suppkey = ps_suppkey
 and p_size = 15
 and p_type like '%BRASS'
@@ -44,11 +32,7 @@ and s_nationkey = n_nationkey
 and n_regionkey = r_regionkey
 and r_name = 'EUROPE'
 )
-order by
-s_acctbal desc,
-n_name,
-s_name,
-p_partkey;
+order by s_acctbal desc,n_name,s_name,p_partkey;
 
 -- Shipping Priority Query (Q3)
 select
