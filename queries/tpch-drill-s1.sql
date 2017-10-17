@@ -13,7 +13,7 @@ select
 s_acctbal,
 s_name,
 n_name,
-p_`s3-mckp-data-test`.`tcph-benchmark/s1/part`key,
+p_partkey,
 p_mfgr,
 s_address,
 s_phone,
@@ -21,34 +21,34 @@ s_comment
 from
 `s3-mckp-data-test`.`tcph-benchmark/s1/part`,
 `s3-mckp-data-test`.`tcph-benchmark/s1/supplier`,
-`s3-mckp-data-test`.`tcph-benchmark/s1/part`supp,
+`s3-mckp-data-test`.`tcph-benchmark/s1/partsupp`,
 `s3-mckp-data-test`.`tcph-benchmark/s1/nation`,
 `s3-mckp-data-test`.`tcph-benchmark/s1/region`
 where
-p_`s3-mckp-data-test`.`tcph-benchmark/s1/part`key = ps_`s3-mckp-data-test`.`tcph-benchmark/s1/part`key
+p_partkey = ps_partkey
 and s_suppkey = ps_suppkey
 and p_size = 15
 and p_type like '%BRASS'
-and s_`s3-mckp-data-test`.`tcph-benchmark/s1/nation`key = n_`s3-mckp-data-test`.`tcph-benchmark/s1/nation`key
-and n_`s3-mckp-data-test`.`tcph-benchmark/s1/region`key = r_`s3-mckp-data-test`.`tcph-benchmark/s1/region`key
+and s_nationkey = n_nationkey
+and n_regionkey = r_regionkey
 and r_name = 'EUROPE'
 and ps_supplycost = (
 select min(ps_supplycost)
 from
-`s3-mckp-data-test`.`tcph-benchmark/s1/part`supp, `s3-mckp-data-test`.`tcph-benchmark/s1/supplier`,
+`s3-mckp-data-test`.`tcph-benchmark/s1/partsupp, `s3-mckp-data-test`.`tcph-benchmark/s1/supplier`,
 `s3-mckp-data-test`.`tcph-benchmark/s1/nation`, `s3-mckp-data-test`.`tcph-benchmark/s1/region`
 where
-p_`s3-mckp-data-test`.`tcph-benchmark/s1/part`key = ps_`s3-mckp-data-test`.`tcph-benchmark/s1/part`key
+p_partkey = ps_partkey
 and s_suppkey = ps_suppkey
-and s_`s3-mckp-data-test`.`tcph-benchmark/s1/nation`key = n_`s3-mckp-data-test`.`tcph-benchmark/s1/nation`key
-and n_`s3-mckp-data-test`.`tcph-benchmark/s1/region`key = r_`s3-mckp-data-test`.`tcph-benchmark/s1/region`key
-and r_name = 'EUROPE'
+and s_nationkey = n_nationkey
+and n_regionkey = r_regionkey
+  and r_name = 'EUROPE'
 )
 order by
 s_acctbal desc,
 n_name,
 s_name,
-p_`s3-mckp-data-test`.`tcph-benchmark/s1/part`key;
+p_partkey;
 
 -- Shipping Priority Query (Q3)
 select
