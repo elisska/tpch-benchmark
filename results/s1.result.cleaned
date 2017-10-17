@@ -1,0 +1,45 @@
+Query: --pricing Summary Report Query (Q1)
+Fetched 4 row(s) in 5.71s
+Query: -- Minimum Cost Supplier Query (Q2)
+Fetched 460 row(s) in 4.06s
+Query: -- Shipping Priority Query (Q3)
+Fetched 11620 row(s) in 8.24s
+Query: --order Priority Checking Query (Q4)
+Fetched 5 row(s) in 8.67s
+Query: --local Supplier Volume Query (Q5)
+Fetched 5 row(s) in 9.39s
+Query: --forecasting Revenue Change Query (Q6)
+Fetched 1 row(s) in 4.40s
+Query: --volume Shipping Query (Q7)
+Fetched 4 row(s) in 8.15s
+Query: -- National Market Share Query (Q8)
+Fetched 2 row(s) in 9.35s
+Query: --product Type Profit Measure Query (Q9)
+Fetched 175 row(s) in 8.48s
+Query: --returned Item Reporting Query (Q10)
+Fetched 37967 row(s) in 18.64s
+Query: --shipping Modes and Order Priority Query (Q12)
+Fetched 2 row(s) in 6.27s
+Query: --customer Distribution Query (Q13)
+Fetched 42 row(s) in 2.55s
+Query: --promotion Effect Query (Q14)
+Fetched 1 row(s) in 5.22s
+Query: --top Supplier Query (Q15)
+Fetched 0 row(s) in 0.02s
+Query: select s_suppkey,
+Fetched 1 row(s) in 14.39s
+Query: drop view revenue1
+Query: --parts/supplier Relationship Query (Q16)
+Fetched 18314 row(s) in 3.94s
+Query: --small-quantity-order Revenue Query (Q17)
+Fetched 1 row(s) in 19.67s
+Query: --large Volume Customer Query (Q18)
+Fetched 57 row(s) in 16.78s
+Query: --discounted Revenue Query (Q19)
+Fetched 1 row(s) in 4.73s
+Query: --potential Part Promotion Query (Q20)
+Fetched 186 row(s) in 5.89s
+Query: --suppliers Who Kept Orders Waiting Query (Q21)
+Fetched 411 row(s) in 21.29s
+Query: --global Sales Opportunity Query (Q22)
+Fetched 7 row(s) in 3.24s
